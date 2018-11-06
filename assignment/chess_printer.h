@@ -28,7 +28,6 @@ typedef char ChessPieceSymbol[PIECE_SYMBOL_STRING_LEN];
 *** @param chess_board The chess board to be printed.
 */
 void print_chess_board(ChessBoard chess_board);
-
 /** Provides a printable symbol for a specific chess piece.
 *** @param piece The chess piece which symbol to be returned.
 *** @param piece_symbol The symbol of the chess piece in printable form
@@ -37,5 +36,4 @@ void print_chess_board(ChessBoard chess_board);
 *** @see PieceType, PieceColor, ChessPiece
 */
 bool get_piece_symbol(struct ChessPiece piece, ChessPieceSymbol piece_symbol);
-
 #endif
