@@ -15,7 +15,7 @@
 
 typedef struct ChessSquare ChessBoard[8][8];
 
-static struct ChessPiece white_pawn = {struct PieceColor, struct PieceType}; //??
+static struct ChessPiece white_pawn = {struct PieceColor, struct PieceType};
 static struct ChessPiece white_king = {struct PieceColor, struct PieceType};
 static struct ChessPiece white_pawn = {struct PieceColor, struct PieceType};
 static struct ChessPiece white_rook = {struct PieceColor, struct PieceType};
