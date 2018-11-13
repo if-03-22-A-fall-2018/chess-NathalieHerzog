@@ -11,7 +11,7 @@
  * ----------------------------------------------------------
  */
 
-  #include <stdlib.h>
+ #include <stdlib.h>
  #include "chess.h"
  #include "general.h"
 
@@ -43,26 +43,53 @@ bool is_piece (struct ChessPiece pc, enum PieceColor color, enum PieceType type)
 void 	init_chess_board (ChessBoard chess_board)
 {
 
+  for (int n = 1; n <= 8; n++)
+   {
+    for (int b = 1; b <= 8; b++)
+     {
+       chess_board[n][b].is_occupied = false;
+    }
+  }
 }
 
 struct ChessSquare * 	get_square (ChessBoard chess_board, File file, Rank rank)
 {
+  if(is_square_ok(file, rank) = true)
+  {
+    chess_board[file - 1][rank - 1].is_occupied
+  }
+
   return 0;
 }
 
 bool 	is_square_occupied (ChessBoard chess_board, File file, Rank rank)
 {
-  return false;
+  return (chess_board[file - 1][rank - 1].is_occupied);
 }
 
 bool 	add_piece (ChessBoard chess_board, File file, Rank rank, struct ChessPiece piece)
 {
+  if(chess_board[file -1][rank -1].is_occupied == false && is_square_ok(file, rank) == true)
+  {
+    chess_board[file -1][rank -1].is_occupied = true;
+    chess_board[file -1][rank -1].piece = piece;
+
+    return true;
+  }
+
   return false;
 }
 
 struct ChessPiece get_piece (ChessBoard chess_board, File file, Rank rank)
 {
-  return chess_board[file - 1][rank - 1].piece;
+  struct ChessPiece piece;
+
+  if(chess_board[file -1][rank -1].is_occupied == true && is_square_ok(file, rank) == true)
+  {
+    return chess_board[file - 1][rank - 1].piece;
+  }
+    piece.type = NoPiece;
+    return piece;
 }
 
 void 	setup_chess_board (ChessBoard chess_board)
@@ -72,6 +99,12 @@ void 	setup_chess_board (ChessBoard chess_board)
 
 bool 	remove_piece (ChessBoard chess_board, File file, Rank rank)
 {
+  if(is_square_occupied(chess_board, file, rank) == true && is_square_ok(file, rank) == true)
+  {
+    chess_board[file - 1][rank - 1].is_occupied = false;
+    return true;
+  }
+
   return false;
 }
 
